@@ -138,7 +138,10 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    return
+    copy = tbl0.copy()
+    copy['suma'] = copy['_c0'] + copy['_c2'] 
+    
+    return copy
 
 
 def pregunta_09():
@@ -198,7 +201,7 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    grouped_df = tbl1.groupby('_c0')['_c4'].apply(lambda x: ','.join(x)).reset_index()
+    grouped_df = tbl1.groupby('_c0')['_c4'].apply(lambda x: ','.join(sorted(','.join(x).split(',')))).reset_index()
     return grouped_df
 
 
